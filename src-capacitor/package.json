@@ -1,0 +1,15 @@
+{
+  "name": "inspectors-app",
+  "version": "0.0.1",
+  "description": "Inspectores SOELSAC",
+  "author": "HighImpact Dev",
+  "private": true,
+  "dependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/app": "^7.0.0",
+    "@capacitor/cli": "^7.0.0",
+    "@capacitor/core": "^7.0.0",
+    "@capacitor/network": "^7.0.2",
+    "capacitor-plugin-safe-area": "^4.0.0"
+  }
+}

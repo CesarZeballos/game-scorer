@@ -1,0 +1,12 @@
+client_max_body_size 20M;
+
+server {
+  listen ${LISTEN_PORT};
+  location / {
+    sub_filter '</head>' '<script> const hasuraURL = "${HASURA_URL}"; const hasuraWs = "${HASURA_WS}"; const coreUrl = "${BE_URL}"; const googleApiKey = "${VITE_GOOGLE_MAPS_API_KEY}"; </script>';
+    sub_filter_once off;
+    root /usr/share/nginx/html;
+    index index.html index.htm;
+    try_files $uri $uri/ /index.html =404;
+  }
+}
