@@ -22,7 +22,6 @@
     "@apollo/client": "^3.8.1",
     "@capacitor/core": "^7.4.3",
     "@capacitor/network": "^7.0.2",
-    "@codegen/affiliated-core-api": "file:local-packages/core/affiliated-core-api-0.0.9.tgz",
     "@quasar/extras": "^1.16.4",
     "@selemondev/vue3-signature-pad": "^1.6.1",
     "@vue/apollo-composable": "^4.0.0-beta.9",
