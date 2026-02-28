@@ -1,9 +1,9 @@
 {
-  "name": "inspectors-affiliated-app",
+  "name": "game-scorer",
   "version": "0.0.1",
-  "description": "Inspectores Afiliados SOELSAC",
-  "productName": "Inspectores AfiLiados SOELSAC",
-  "author": "HighImpact Dev",
+  "description": "game scorer",
+  "productName": "game scorer",
+  "author": "Picu Zeballos",
   "type": "module",
   "private": true,
   "scripts": {

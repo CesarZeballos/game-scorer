@@ -15,103 +15,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 $typography-font-family : 'Montserrat', sans-serif !default;
 
-$primary   : #311B92;
-$secondary : #673AB7;
-$accent    : #EDE7F6;
-
-$dark      : #212121;
-$dark-page : #121212;
-
-$positive  : #009688;
-$negative  : #F44336;
-$info      : #304FFE;
-$warning   : #FBE9E7;
-
-//$light     : #F0F5F9;
-
-//$amber-1: #FFF8E1;
-//$amber-2: #FFECB3;
-//$amber-3: #FFE082;
-//$amber-5: #FF7043;
-//$amber-7: #FFB300;
-//$amber-9: #FF8F00;
+//$primary   : #311B92;
+//$secondary : #673AB7;
+//$accent    : #EDE7F6;
 //
-$blue-grey-1: #ECEFF1;
-$blue-grey-2: #CFD8DC;
-$blue-grey-3: #B0BEC5;
-$blue-grey-5: #78909C;
-$blue-grey-6: #607D8B;
-$blue-grey-7: #546E7A;
-$blue-grey-8: #455A64;
-$blue-grey-9: #37474F;
-$blue-grey-10: #263238;
-
-$cyan-1: #E0F7FA;
-$cyan-10: #006064;
-
-$deep-orange-1: #FBE9E7;
-$deep-orange-4: #FF8A65;
-$deep-orange-6: #FF5722;
-
-$deep-purple-1: #EDE7F6;
-$deep-purple-2: #D1C4E9;
-$deep-purple-3: #B39DDB;
-$deep-purple-4: #9575CD;
-$deep-purple-5: #7E57C2;
-$deep-purple-6: #673AB7;
-$deep-purple-7: #5E35B1;
-$deep-purple-8: #512DA8;
-$deep-purple-9: #4527A0;
-$deep-purple-10: #311B92;
-
-$grey-1: #FAFAFA;
-$grey-2: #F5F5F5;
-$grey-3: #EEEEEE;
-$grey-4: #E0E0E0;
-$grey-5: #BDBDBD;
-$grey-6: #9E9E9E;
-$grey-7: #757575;
-$grey-8: #616161;
-$grey-9: #424242;
-$grey-10: #212121;
-
-//$indigo-1: #E8EAF6;
-//$indigo-2: #C5CAE9;
-//$indigo-3: #9FA8DA;
-//$indigo-5: #5C6BC0;
-//$indigo-7: #3949AB;
-//$indigo-9: #283593;
-$indigo-14: #304FFE;
-
-$pink: #FCE4EC;
-$pink-10: #880E4F;
-
-$purple-1: #F3E5F5;
-$purple-10: #4A148C;
-
-//$light-blue-1: #E1F5FE;
-//$light-blue-2: #B3E5FC;
-//$light-blue-3: #81D4FA;
-//$light-blue-5: #29B6F6;
-//$light-blue-7: #039BE5;
-//$light-blue-9: #0277BD;
-
-$teal-1: #E0F2F1;
-$teal-2: #B2DFDB;
-//$teal-3: #80CBC4;
-//$teal-4: #4DB6AC;
-$teal-6: #009688;
-//$teal-8: #00796B;
-
-$red-1: #FFEBEE;
-$red-6: #F44336;
-//$red-8: #901003;
-
-//$blue-1: #E8EAF6;
-//$blue-5: #371EF4;
-
-$yellow-1: #FFFDE7;
-$yellow-10: #F57F17;
+//$dark      : #212121;
+//$dark-page : #121212;
+//
+//$positive  : #009688;
+//$negative  : #F44336;
+//$info      : #304FFE;
+//$warning   : #FBE9E7;
+//
+////$light     : #F0F5F9;
+//
+////$amber-1: #FFF8E1;
+////$amber-2: #FFECB3;
+////$amber-3: #FFE082;
+////$amber-5: #FF7043;
+////$amber-7: #FFB300;
+////$amber-9: #FF8F00;
+////
+//$blue-grey-1: #ECEFF1;
+//$blue-grey-2: #CFD8DC;
+//$blue-grey-3: #B0BEC5;
+//$blue-grey-5: #78909C;
+//$blue-grey-6: #607D8B;
+//$blue-grey-7: #546E7A;
+//$blue-grey-8: #455A64;
+//$blue-grey-9: #37474F;
+//$blue-grey-10: #263238;
+//
+//$cyan-1: #E0F7FA;
+//$cyan-10: #006064;
+//
+//$deep-orange-1: #FBE9E7;
+//$deep-orange-4: #FF8A65;
+//$deep-orange-6: #FF5722;
+//
+//$deep-purple-1: #EDE7F6;
+//$deep-purple-2: #D1C4E9;
+//$deep-purple-3: #B39DDB;
+//$deep-purple-4: #9575CD;
+//$deep-purple-5: #7E57C2;
+//$deep-purple-6: #673AB7;
+//$deep-purple-7: #5E35B1;
+//$deep-purple-8: #512DA8;
+//$deep-purple-9: #4527A0;
+//$deep-purple-10: #311B92;
+//
+//$grey-1: #FAFAFA;
+//$grey-2: #F5F5F5;
+//$grey-3: #EEEEEE;
+//$grey-4: #E0E0E0;
+//$grey-5: #BDBDBD;
+//$grey-6: #9E9E9E;
+//$grey-7: #757575;
+//$grey-8: #616161;
+//$grey-9: #424242;
+//$grey-10: #212121;
+//
+////$indigo-1: #E8EAF6;
+////$indigo-2: #C5CAE9;
+////$indigo-3: #9FA8DA;
+////$indigo-5: #5C6BC0;
+////$indigo-7: #3949AB;
+////$indigo-9: #283593;
+//$indigo-14: #304FFE;
+//
+//$pink: #FCE4EC;
+//$pink-10: #880E4F;
+//
+//$purple-1: #F3E5F5;
+//$purple-10: #4A148C;
+//
+////$light-blue-1: #E1F5FE;
+////$light-blue-2: #B3E5FC;
+////$light-blue-3: #81D4FA;
+////$light-blue-5: #29B6F6;
+////$light-blue-7: #039BE5;
+////$light-blue-9: #0277BD;
+//
+//$teal-1: #E0F2F1;
+//$teal-2: #B2DFDB;
+////$teal-3: #80CBC4;
+////$teal-4: #4DB6AC;
+//$teal-6: #009688;
+////$teal-8: #00796B;
+//
+//$red-1: #FFEBEE;
+//$red-6: #F44336;
+////$red-8: #901003;
+//
+////$blue-1: #E8EAF6;
+////$blue-5: #371EF4;
+//
+//$yellow-1: #FFFDE7;
+//$yellow-10: #F57F17;
 
 $button-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.20);
 $button-padding: 10px 16px !default;
