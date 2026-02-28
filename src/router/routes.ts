@@ -22,7 +22,7 @@ const routes: RouteRecordRaw[] = [
     // redirect: {name: 'gameSelector'},
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      {path: 'odin', component: () => import('pages/playing/odin/OdinGamePage.vue'), name: 'odin'},
+      {path: 'odin', component: () => import('pages/playing/odin/OdinGamePage.vue'), name: 'odinScorePage'},
     ]
   },
   {

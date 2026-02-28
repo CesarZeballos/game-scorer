@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <!-- content -->
+    odin page
   </q-page>
 </template>
 
