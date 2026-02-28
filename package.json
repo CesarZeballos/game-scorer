@@ -16,7 +16,7 @@
     "build": "quasar build",
     "build-android": "quasar build -m android",
     "build-ios": "quasar build -m ios",
-    "postinstall": "quasar prepare && cd node_modules/@codegen/affiliated-core-api && yarn run build && node ../../../scripts/postinstall.js"
+    "postinstall": "quasar prepare && yarn run build && node ../../../scripts/postinstall.js"
   },
   "dependencies": {
     "@apollo/client": "^3.8.1",
