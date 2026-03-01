@@ -11,5 +11,11 @@ export interface RoundScoreModel {
 
 export interface RoundModel {
     uid: string
+    roundNumber: number
     scores: RoundScoreModel[]
+}
+
+export interface PlayerCardModel {
+    player: PlayerModel
+    totalScore: number
 }

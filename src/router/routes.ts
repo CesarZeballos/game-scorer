@@ -20,7 +20,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/playing',
     // redirect: {name: 'gameSelector'},
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/PlayingLayout.vue'),
     children: [
       {path: 'odin', component: () => import('pages/playing/odin/OdinGamePage.vue'), name: 'odinScorePage'},
     ]
