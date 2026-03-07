@@ -1,13 +1,25 @@
 <template>
   <q-dialog ref="dialogRef" position="bottom" >
     <q-card style="min-height: 80dvh" class="column">
-      <q-card-section class="text-weight-bold text-center text-xl q-pt-sm">
-        <q-separator color="primary" spaced style="width: 100px" class="q-mx-auto" size="2px"/>
-        <div class="q-pt-sm text-primary">
-          Ronda n{{rounds.length + 1}}
-        </div>
-      </q-card-section>
       <q-form @submit="submitRound" class="col column">
+        <q-card-section class="q-pt-sm text-center">
+          <q-separator color="primary" spaced style="width: 100px" class="q-mx-auto" size="2px"/>
+          <div class="flex justify-between items-center q-pt-sm no-wrap">
+            <div class="text-xl text-weight-bold">
+              Ronda n{{ rounds.length + 1 }}
+            </div>
+            <div class="flex q-gutter-x-md no-wrap">
+              <q-btn
+                  icon="arrow_downward"
+                  type="submit"
+                  rounded
+                  no-caps
+                  color="primary"
+                  padding="0.8rem"
+              />
+            </div>
+          </div>
+        </q-card-section>
         <q-card-section class="q-mb-auto q-gutter-y-md">
           <div
               v-for="p in roundPlayers"
@@ -21,36 +33,9 @@
               {{ p.name }}
             </div>
 
-            <q-input
-                v-model.number="p.score"
-                type="text"
-                outlined
-                hideBottomSpace
-                bg-color="white"
-                :color="p.color"
-                :input-class="'text-weight-bold text-xl text-center text-' + p.color"
-                style="width: 150px"
-                mask="##"
-            >
-              <template v-slot:prepend>
-                <q-icon name="o_remove" @click="p.score--" class="cursor-pointer" />
-              </template>
-              <template v-slot:append>
-                <q-icon name="o_add" @click="p.score++" class="cursor-pointer" />
-              </template>
-            </q-input>
+            <ScoreInputComponent v-model="p.score" :color="p.color" />
           </div>
         </q-card-section>
-        <q-card-actions class="q-mb-lg q-gutter-y-md">
-          <q-btn
-              label="Guardar Ronda"
-              type="submit"
-              rounded
-              no-caps
-              color="primary"
-              class="text-weight-bold full-width"
-          />
-        </q-card-actions>
       </q-form>
     </q-card>
   </q-dialog>
@@ -60,6 +45,7 @@
 import { ref } from 'vue'
 import { useDialogPluginComponent } from 'quasar'
 import { useGameStore } from 'stores/games-store'
+import ScoreInputComponent from 'components/commons/ScoreInputComponent.vue'
 
 const { dialogRef, onDialogOK } = useDialogPluginComponent()
 
