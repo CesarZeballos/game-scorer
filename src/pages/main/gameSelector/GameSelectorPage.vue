@@ -25,14 +25,13 @@ const {setNewGame} = useGameStore();
 const router = useRouter();
 
 function goToGame(game: gameModel) {
-  console.log(game)
   dialog({
     component: SetPlayersModal,
     componentProps: {
       game
     }
-  }).onOk((res) => {
-    setNewGame(game.id, res)
+  }).onOk((playerNames: string[]) => {
+    setNewGame(game.id, playerNames)
     void router.push({name: game.pageName})
   })
 }

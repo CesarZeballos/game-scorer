@@ -51,12 +51,21 @@ export const useGameStore = defineStore(
             return QUASAR_COLORS[index % QUASAR_COLORS.length] ?? 'primary'
         }
 
-        function setNewGame(gameId: string, playerNames: string[]) {
+        function setNewGame(gameId: string, playerNames: string[]): boolean {
             const game = gameOptions.find(g => g.id === gameId)
 
             if (!game) {
                 console.error('Game not found')
-                return
+                return false
+            }
+
+            const normalizedPlayerNames = playerNames.map((name) => name.trim())
+            const hasEmptyNames = normalizedPlayerNames.some((name) => !name)
+            const invalidPlayersCount = normalizedPlayerNames.length < game.minPlayers
+
+            if (hasEmptyNames || invalidPlayersCount) {
+                console.error('Invalid players configuration')
+                return false
             }
 
             // seteamos juego actual
@@ -66,11 +75,13 @@ export const useGameStore = defineStore(
             rounds.value = []
 
             // creamos jugadores
-            players.value = playerNames.map((name, index) => ({
+            players.value = normalizedPlayerNames.map((name, index) => ({
                 uid: uid(),
                 name,
                 color: getNextColor(index)
             }))
+
+            return true
         }
 
         function addRound(
