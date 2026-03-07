@@ -55,7 +55,6 @@ export default defineConfigWithVueTs(
       globals: {
         ...globals.browser,
         ...globals.node, // SSR, Electron, config files
-        process: 'readonly', // process.env.*
         ga: 'readonly', // Google Analytics
         cordova: 'readonly',
         Capacitor: 'readonly',
@@ -68,8 +67,7 @@ export default defineConfigWithVueTs(
     rules: {
       'prefer-promise-reject-errors': 'off',
 
-      // allow debugger during development only
-      'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+      'no-debugger': 'off',
 
       // in plain CommonJS modules, you can't use `import foo = require('foo')` to pass this rule, so it has to be disabled
       '@typescript-eslint/no-var-requires': 'off',

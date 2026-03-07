@@ -15,7 +15,6 @@
 //
 // function getCurrentPlatform(): 'desktop' | 'app' {
 //   return Platform.is.mobile ? 'app' : 'desktop'
-//   // return {Platform.is.capacitor || Platform.is.nativeMobile} ? 'app' : 'desktop' todo: al momento de finalizar la app cambiar esto
 // }
 //
 // // "async" is optional;
