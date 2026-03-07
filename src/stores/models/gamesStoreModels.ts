@@ -16,6 +16,7 @@ export interface RoundModel {
 }
 
 export interface PlayerRoundHistoryModel {
+    roundUid: string
     roundNumber: number
     points: number
 }

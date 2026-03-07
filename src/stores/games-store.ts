@@ -36,7 +36,8 @@ export const useGameStore = defineStore(
                             s => s.playerUid === player.uid
                         )
 
-                        return {
+                    return {
+                            roundUid: round.uid,
                             roundNumber: round.roundNumber,
                             points: score?.points ?? 0
                         }
@@ -119,6 +120,26 @@ export const useGameStore = defineStore(
             rounds.value.push(newRound)
         }
 
+        function updateRound(
+            roundUid: string,
+            roundData: { playerId: string; roundScore: number }[]
+        ) {
+            const roundIndex = rounds.value.findIndex((round) => round.uid === roundUid)
+            if (roundIndex < 0) return
+
+            const roundToUpdate = rounds.value[roundIndex]
+            if (!roundToUpdate) return
+
+            roundToUpdate.scores = players.value.map(player => {
+                const found = roundData.find(r => r.playerId === player.uid)
+
+                return {
+                    playerUid: player.uid,
+                    points: found?.roundScore ?? 0
+                }
+            })
+        }
+
         function finishGame() {
             actualGame.value = null
             players.value = []
@@ -136,6 +157,7 @@ export const useGameStore = defineStore(
             playersRanking,
             setNewGame,
             addRound,
+            updateRound,
             resetGame,
             finishGame,
         }

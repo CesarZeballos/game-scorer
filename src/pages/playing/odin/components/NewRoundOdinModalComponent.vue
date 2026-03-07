@@ -6,7 +6,7 @@
           <q-separator color="primary" spaced style="width: 100px" class="q-mx-auto" size="2px"/>
           <div class="flex justify-between items-center q-pt-sm no-wrap">
             <div class="text-xl text-weight-bold">
-              Ronda n{{ rounds.length + 1 }}
+              {{ isEditingRound ? `Editar ronda n${currentRoundNumber}` : `Ronda n${rounds.length + 1}` }}
             </div>
             <div class="flex q-gutter-x-md no-wrap">
               <q-btn
@@ -48,9 +48,12 @@ import { useGameStore } from 'stores/games-store'
 import ScoreInputComponent from 'components/commons/ScoreInputComponent.vue'
 
 const { dialogRef, onDialogOK } = useDialogPluginComponent()
+const props = defineProps<{
+  editRoundUid?: string
+}>()
 
 const gameStore = useGameStore()
-const { players, rounds, addRound } = gameStore
+const { players, rounds, addRound, updateRound } = gameStore
 
 interface RoundPlayerInput {
   playerUid: string
@@ -59,13 +62,24 @@ interface RoundPlayerInput {
   score: number
 }
 
+const roundToEdit = props.editRoundUid
+  ? rounds.find((round) => round.uid === props.editRoundUid)
+  : undefined
+
+const isEditingRound = !!roundToEdit
+const currentRoundNumber = roundToEdit?.roundNumber ?? rounds.length + 1
+
 const roundPlayers = ref<RoundPlayerInput[]>(
-    players.map(p => ({
+  players.map(p => {
+    const editedScore = roundToEdit?.scores.find((score) => score.playerUid === p.uid)
+
+    return {
       playerUid: p.uid,
       name: p.name,
       color: p.color,
-      score: 0
-    }))
+      score: editedScore?.points ?? 0
+    }
+  })
 )
 
 function submitRound() {
@@ -74,7 +88,12 @@ function submitRound() {
     roundScore: Number(p.score) || 0
   }))
 
-  addRound(payload)
+  if (roundToEdit?.uid) {
+    updateRound(roundToEdit.uid, payload)
+  } else {
+    addRound(payload)
+  }
+
   onDialogOK()
 }
 </script>

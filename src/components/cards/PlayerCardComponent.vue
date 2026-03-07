@@ -20,12 +20,20 @@
 
       <q-card-section class="q-pt-none">
         <q-list separator>
-          <q-item v-for="round in playerData.history" :key="round.roundNumber" dense>
+          <q-item v-for="round in playerData.history" :key="round.roundNumber" dense class="text-md">
             <q-item-section class="text-white">
               Ronda {{ round.roundNumber }}
             </q-item-section>
             <q-item-section side class="text-white text-weight-bold">
-              {{ round.points }}
+                {{ round.points }}
+            </q-item-section>
+            <q-item-section  avatar>
+              <q-icon
+                name="o_edit"
+                color="white"
+                class="cursor-pointer"
+                @click.stop="editRound(round.roundUid)"
+              />
             </q-item-section>
           </q-item>
           <q-item v-if="!playerData.history.length" dense>
@@ -41,9 +49,22 @@
 
 <script setup lang="ts">
 import {PlayerCardModel} from "stores/models/gamesStoreModels";
+import {useQuasar} from "quasar";
+import NewRoundOdinModalComponent from "pages/playing/odin/components/NewRoundOdinModalComponent.vue";
+
+const {dialog} = useQuasar()
 
 defineProps<{
   playerData: PlayerCardModel,
   position: number
 }>()
+
+function editRound(roundUid: string) {
+  dialog({
+    component: NewRoundOdinModalComponent,
+    componentProps: {
+      editRoundUid: roundUid
+    }
+  })
+}
 </script>
