@@ -66,10 +66,15 @@ const { dialogRef, onDialogOK } = useDialogPluginComponent()
 
 const props = defineProps<{
   game: gameModel
+  initialPlayers?: string[]
 }>()
 
 const { showToastWithBtn } = useToast();
-const players = ref<string[]>(Array.from({length: props.game.minPlayers}, () => ''))
+const players = ref<string[]>(
+  props.initialPlayers?.length
+    ? [...props.initialPlayers]
+    : Array.from({length: props.game.minPlayers}, () => '')
+)
 const allowOverflow = ref(false)
 
 function addPlayer() {
