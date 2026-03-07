@@ -11,10 +11,10 @@
     mask="##"
   >
     <template #prepend>
-      <q-icon name="o_remove" class="cursor-pointer" @click="score--" />
+      <q-icon name="o_remove" class="cursor-pointer" @click="decrement" :aria-disabled="score === 0" color="negative" />
     </template>
     <template #append>
-      <q-icon name="o_add" class="cursor-pointer" @click="score++" />
+      <q-icon name="o_add" class="cursor-pointer" @click="increment" color="positive"/>
     </template>
   </q-input>
 </template>
@@ -27,4 +27,13 @@ defineProps<{
 const score = defineModel<number>({
   required: true
 })
+
+function increment() {
+  score.value ++
+}
+
+function decrement() {
+  if (score.value === 0) return
+  score.value --
+}
 </script>
