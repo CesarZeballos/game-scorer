@@ -29,7 +29,7 @@
             </q-item-section>
             <q-item-section  avatar>
               <q-icon
-                name="o_edit"
+                name="sym_o_edit_square"
                 color="white"
                 class="cursor-pointer"
                 @click.stop="editRound(round.roundUid)"
