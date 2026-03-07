@@ -11,7 +11,13 @@
             <div class="text-white">
               {{ playerData.player.name }}
             </div>
-            <div class="text-white">
+            <div class="text-white flex items-center q-gutter-x-xs">
+              <q-icon
+                v-if="scoreIcon"
+                :name="scoreIcon"
+                color="white"
+                left
+              />
               {{ playerData.totalScore }}
             </div>
           </div>
@@ -48,16 +54,25 @@
 </template>
 
 <script setup lang="ts">
+import {computed} from "vue";
 import {PlayerCardModel} from "stores/models/gamesStoreModels";
 import {useQuasar} from "quasar";
 import NewRoundOdinModalComponent from "pages/playing/odin/components/NewRoundOdinModalComponent.vue";
 
 const {dialog} = useQuasar()
 
-defineProps<{
+const props = defineProps<{
   playerData: PlayerCardModel,
   position: number
+  totalPlayers: number
 }>()
+
+const scoreIcon = computed(() => {
+  if (props.position === 1) return 'sym_o_crown'
+  if (props.position === props.totalPlayers) return 'sym_o_face_2'
+
+  return ''
+})
 
 function editRound(roundUid: string) {
   dialog({

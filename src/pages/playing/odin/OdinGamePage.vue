@@ -1,7 +1,13 @@
 <template>
   <q-page padding class="column">
     <div class="q-gutter-y-md col">
-      <PlayerCardComponent v-for="(p, index) in playersRanking" :key="p.player.uid" :playerData="p" :position="index + 1" />
+      <PlayerCardComponent
+        v-for="(p, index) in playersRanking"
+        :key="p.player.uid"
+        :player-data="p"
+        :position="index + 1"
+        :total-players="playersRanking.length"
+      />
     </div>
     <div class="q-mb-lg">
       <q-btn
