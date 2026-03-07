@@ -15,7 +15,13 @@ export interface RoundModel {
     scores: RoundScoreModel[]
 }
 
+export interface PlayerRoundHistoryModel {
+    roundNumber: number
+    points: number
+}
+
 export interface PlayerCardModel {
     player: PlayerModel
     totalScore: number
+    history: PlayerRoundHistoryModel[]
 }

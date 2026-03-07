@@ -31,6 +31,17 @@ export const useGameStore = defineStore(
 
             return players.value
                 .map(player => {
+                    const history = rounds.value.map((round) => {
+                        const score = round.scores.find(
+                            s => s.playerUid === player.uid
+                        )
+
+                        return {
+                            roundNumber: round.roundNumber,
+                            points: score?.points ?? 0
+                        }
+                    })
+
                     const totalScore = rounds.value.reduce((acc, round) => {
                         const score = round.scores.find(
                             s => s.playerUid === player.uid
@@ -41,7 +52,8 @@ export const useGameStore = defineStore(
 
                     return {
                         player: player,
-                        totalScore
+                        totalScore,
+                        history
                     }
                 })
                 .sort((a, b) => a.totalScore - b.totalScore) // menor a mayor
